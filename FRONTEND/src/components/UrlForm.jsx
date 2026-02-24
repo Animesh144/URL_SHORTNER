@@ -36,7 +36,7 @@ const UrlForm = () => {
   return (
     <div className="space-y-4">
         <div>
-          <label htmlFor="url" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="url" className="block text-sm font-medium text-[#042940] mb-1">
             Enter your URL
           </label>
           <input
@@ -46,14 +46,15 @@ const UrlForm = () => {
             onInput={(event)=>setUrl(event.target.value)}
             placeholder="https://example.com"
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-3 border border-[#D6D58E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9FC131] focus:border-[#9FC131] bg-[#F9FAFB]"
           />
         </div>
         <button
           onClick={handleSubmit}
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
-        >Shorten URL
+          className="w-full bg-[#005C53] text-white py-3 px-4 rounded-xl hover:bg-[#042940] focus:outline-none focus:ring-2 focus:ring-[#DBF227] focus:ring-offset-2 focus:ring-offset-white disabled:opacity-50 font-semibold shadow-md"
+        >
+          Shorten URL
         </button>
          {error && (
           <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-md">
@@ -62,7 +63,7 @@ const UrlForm = () => {
         )}
         {isAuthenticated && (
           <div className="mt-4">
-            <label htmlFor="customSlug" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="customSlug" className="block text-sm font-medium text-[#042940] mb-1">
               Custom URL (optional)
             </label>
             <input
@@ -70,27 +71,27 @@ const UrlForm = () => {
               id="customSlug"
               value={customSlug}
               onChange={(event) => setCustomSlug(event.target.value)}
-              placeholder="Enter custom slug"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="my‑campaign"
+              className="w-full px-4 py-3 border border-[#D6D58E] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9FC131] focus:border-[#9FC131] bg-[#F9FAFB]"
             />
           </div>
         )}
         {shortUrl && (
           <div className="mt-6">
-            <h2 className="text-lg font-semibold mb-2">Your shortened URL:</h2>
+            <h2 className="text-lg font-semibold mb-2 text-[#042940]">Your shortened URL</h2>
             <div className="flex items-center">
               <input
                 type="text"
                 readOnly
                 value={shortUrl}
-                className="flex-1 p-2 border border-gray-300 rounded-l-md bg-gray-50"
+                className="flex-1 p-3 border border-[#D6D58E] rounded-l-xl bg-gray-50 text-sm"
               />
                <button
                 onClick={handleCopy}
-                className={`px-4 py-2 rounded-r-md transition-colors duration-200 ${
+                className={`px-4 py-3 rounded-r-xl text-sm font-medium transition-colors duration-200 ${
                   copied 
-                    ? 'bg-green-500 text-white hover:bg-green-600' 
-                    : 'bg-gray-200 hover:bg-gray-300'
+                    ? 'bg-[#9FC131] text-[#042940] hover:bg-[#DBF227]' 
+                    : 'bg-[#005C53] text-white hover:bg-[#042940]'
                 }`}
               >
                 {copied ? 'Copied!' : 'Copy'}
