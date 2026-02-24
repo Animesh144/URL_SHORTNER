@@ -15,9 +15,15 @@ dotenv.config()
 
 const app = express();
 
+// Allow frontend dev servers on common Vite ports (5173, 5175, etc.)
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:5175',
+];
+
 app.use(cors({
-    origin: 'http://localhost:5173', // your React app
-    credentials: true // 👈 this allows cookies to be sent
+    origin: allowedOrigins,
+    credentials: true
 }));
 
 app.use(express.json())
